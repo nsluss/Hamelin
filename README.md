@@ -20,7 +20,7 @@ Functional Programming for JavaScript: the piper's tune shall lead you to a land
     - Limit of JavaScript, comparison to other languages
     - Making sense of sprint weeks
     - Making sense of mvp, greenfield, legacy
-      - What could have been done better
+      - What could have been done better?
       - How could legacy code have been easier to maintain?
     - Job search
 
@@ -33,7 +33,7 @@ Functional Programming for JavaScript: the piper's tune shall lead you to a land
       - Your high school English teacher told you to write with verbs - it makes for strong, descriptive sentences.
       - Good resume coach will say to start every bullet with a strong, type-A verb
  
-(quick exercise - tree?)
+  (quick exercise - tree?)
 
     - FP is a paradigm for abstraction
       - Languages have levels of abstraction
@@ -53,7 +53,7 @@ Functional Programming for JavaScript: the piper's tune shall lead you to a land
           - FP relates to *Stack*
         - (Also, there are many web-specific paradigms and protocols that make things more smooth and comprehensible, such as RESTful APIs)
 
-(exercise?)
+  (exercise?)
 
   - What is FP, *in relation to JavaScript*?
     - JS has a foot in each camp
@@ -69,12 +69,12 @@ Functional Programming for JavaScript: the piper's tune shall lead you to a land
       - Functions are "first class citizens"
       - Can be passed as arguments/callbacks
 
-(exercise?)
+  (exercise?)
 
       - Easy to write FP libraries (just as CoffeeScript w/ OOP)
-(chart of native functions vs. underbar, underscore, ramda)
+      - Chart of native functions vs. underbar, underscore, ramda
 
-(exercise using ramda)
+  (exercise using ramda)
 
  
 - Problems
