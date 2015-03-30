@@ -1,6 +1,6 @@
 // Welcome to the peaceful town of Hamelin :)
 
-// Hamelin is a small town in germany
+// Hamelin is a small town in Germany
 // Recently they have been overridden by an infestation of rats!
 
 // Here is a list of all the sub-sections of the town
