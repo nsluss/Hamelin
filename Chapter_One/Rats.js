@@ -28,7 +28,7 @@ var districtsOfHamelin = [
   {name: 'Tündern',      hasRats: false, numberOfRats: 0  },
   {name: 'Wehrbergen',   hasRats: true,  numberOfRats: 37 },
   {name: 'Rohrsen',      hasRats: true,  numberOfRats: 59 },
-  {name: 'Welliehausen', hasRats: true,  numberOfRats: 93]
+  {name: 'Welliehausen', hasRats: true,  numberOfRats: 93 }
 ];
 
 // We need a way to tell what neighborhoods are overrun
@@ -41,6 +41,8 @@ function findRats (places) {
   return withRats;
 }
 
+//console.log(findRats(districtsOfHamelin));
+
 
 //___________________________________________________________________
 // Section 1
@@ -50,10 +52,12 @@ function findRats (places) {
 function announceRats (places) {
   var withRats = findRats(places);
   for (var i = 0; i < withRats.length; i++) {
-    console.log(places[i] + 'HAS BEEN OVERCOME BY RATS!')
+    console.log(withRats[i] + 'HAS BEEN OVERCOME BY RATS!');
   }
   return places; // always returning a value is just good practice, even if we won't use it now
 }
+
+//announceRats(districtsOfHamelin);
 
 
 // Extra Credit: replace the for loop in findRats as well
@@ -65,16 +69,18 @@ function announceRats (places) {
 // The townspeople need a way to tell which parts of Hamelin are safe!
 function findSafePlaces (places) {
   var safe = [];
-  for var (i = 0; i < places.length; i++) {
+  for (var i = 0; i < places.length; i++) {
     if (places[i].hasRats === false) {
-      safe.push(places[i].name)
+      safe.push(places[i]);
     }
   }
   return safe;
 }
 
+//console.log(findSafePlaces(districtsOfHamelin));
 
-// Extra Credit: replace the loop (or each) in findRats 
+
+// Extra Credit: replace the loop (or forEach) in findRats 
 
 
 
@@ -95,38 +101,46 @@ function totalRats (town) {
   return total;
 }
 
+//console.log(totalRats(districtsOfHamelin))
+
+
+//Extra Credit: replace the second for loop with a .reduce
 
 //___________________________________________________________________
-// Section 4
+//Section 4
+
+
+// When visitors come to town they want a directory of safe and unsafe
+// neighborhoods
+
+function visitorsInfo (town) {
+  return _.map(town, function(neighborhood){
+    return {
+      name: neighborhood.name,
+      isSafe: !neighborhood.hasRats
+    }
+  });
+}
+
+
+//___________________________________________________________________
+// Section 5
 
 
 // Tree with reduce
 
 
 
-
 //___________________________________________________________________
+
 // Extra credit:
 
-// Let's clean up our town array
-// We don't really need to keep a boolean and number
-// Let's change it to a number
-function prettifyTown (town) {
-  town.map(function (place) {
-    return {
-      name:         place.name,
-      numberOfRats: place.numberOfRats
-    };
-  });
-}
-// Map is the right choice for this function, but just for fun, try
+
+// Map is the right choice for the visitorsInfo function, but just for fun, try
 // to switch the .map() out for a .reduce()
 
 
+// Extra Credit 2:
 
-
-//___________________________________________________________________
-//Section 6
-
-
-
+// Refactor the visitorsInfo function to re-use previously writen
+// functions (findSafePlaces, FindRats)
