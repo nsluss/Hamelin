@@ -1,3 +1,15 @@
+// If you are working from a node.js-based build system
+// in a text editor such as Sublime, uncomment the line below:
+
+// var _ = require("../lib/underscore.js");
+
+// Otherwise, copy this code into the sandbox at http://jsbin.com/?js
+// and add 'underscore' from the 'Add library' dropdown 
+
+// If do you want to add such a build system to your Sublime someday,
+// go to:    http://irruncibly.so/run-js-code-in-sublime
+
+//___________________________________________________________________
 // Welcome to the peaceful town of Hamelin :)
 
 // Hamelin is a small town in Germany
@@ -89,6 +101,8 @@ function totalRats (town) {
 
 
 // Tree with reduce
+
+
 
 
 //___________________________________________________________________
