@@ -222,7 +222,7 @@ Stack.prototype.size = function(){
 
 
 //___________________________________________________________________
-//Section 4
+//Section 5
 
 
 // When visitors come to town they want a directory of safe and unsafe
@@ -236,14 +236,6 @@ function visitorsInfo (town) {
     }
   });
 }
-
-
-//___________________________________________________________________
-// Section 5
-
-
-// Tree with reduce
-
 
 
 //___________________________________________________________________
