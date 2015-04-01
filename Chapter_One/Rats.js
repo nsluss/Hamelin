@@ -111,7 +111,7 @@ function totalRats (town) {
 
 // TEST:
 
-// console.log(totalRats(districtsOfHamelin))
+// console.log(totalRats(districtsOfHamelin));
 
 //Extra Credit: replace the second for loop with a .reduce
 
