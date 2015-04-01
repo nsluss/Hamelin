@@ -3,6 +3,9 @@
 
 // var _ = require("../lib/underscore.js");
 
+// You can also type `node file/path/to/Rats.js` in your terminal to run the
+// code with the require uncommented.
+
 // Otherwise, copy this code into the sandbox at http://jsbin.com/?js
 // and add 'underscore' from the 'Add library' dropdown 
 
