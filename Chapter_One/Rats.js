@@ -151,13 +151,13 @@ mattimeo.addChild( new Rodent('Frankie Mouse') );
 mattimeo.addChild( new Rodent('Benjy Mouse') );
 grandDaddy.addChild( mattimeo );
 
-console.log( grandDaddy.contains('Rizzo the Rat') ); // yields 'false'
+//console.log( grandDaddy.contains('Rizzo the Rat') ); // yields 'false'
   
 var vera = new Rodent( 'Vera Mouse' );
 vera.addChild( new Rodent( ('Rizzo the Rat') ) );
 grandDaddy.addChild( vera );
 
-console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
+//console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
 
 
 // Section 4 BONUS: (this is not related to FP):
