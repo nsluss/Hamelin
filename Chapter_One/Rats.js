@@ -130,34 +130,35 @@ Rodent.prototype.addChild = function(value){
 
 Rodent.prototype.contains = function( value ){
 
-  if( this.value === value){
-    return true;
-  }
-  for( var i = 0; i < this.children.length; i++ ){
-    if( this.children[ i ].value.contains( value ) ){
-      return true;
-    }
-  }
-  return false;
+
+  return this.children.reduce(function(acc, currentChild){
+    return acc || currentChild.value.contains( value );
+  }, this.value === value);
+  // for( var i = 0; i < this.children.length; i++ ){
+  //   if( this.children[ i ].value.contains( value ) ){
+  //     return true;
+  //   }
+  // }
+  // return false;
 };
 
 // YOUR RAT DETECTION STRATEGY MUST PASS THESE TESTS:
 
-var grandDaddy = new Rodent( 'Grand-daddy Mouse' );
-grandDaddy.addChild ( new Rodent('Jerry Mouse') );
+// var grandDaddy = new Rodent( 'Grand-daddy Mouse' );
+// grandDaddy.addChild ( new Rodent('Jerry Mouse') );
 
-var mattimeo = new Rodent( 'Mattimeo Mouse' );
-mattimeo.addChild( new Rodent('Frankie Mouse') );
-mattimeo.addChild( new Rodent('Benjy Mouse') );
-grandDaddy.addChild( mattimeo );
+// var mattimeo = new Rodent( 'Mattimeo Mouse' );
+// mattimeo.addChild( new Rodent('Frankie Mouse') );
+// mattimeo.addChild( new Rodent('Benjy Mouse') );
+// grandDaddy.addChild( mattimeo );
 
-console.log( grandDaddy.contains('Rizzo the Rat') ); // yields 'false'
+// console.log( grandDaddy.contains('Rizzo the Rat') ); // yields 'false'
   
-var vera = new Rodent( 'Vera Mouse' );
-vera.addChild( new Rodent( ('Rizzo the Rat') ) );
-grandDaddy.addChild( vera );
+// var vera = new Rodent( 'Vera Mouse' );
+// vera.addChild( new Rodent( ('Rizzo the Rat') ) );
+// grandDaddy.addChild( vera );
 
-console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
+// console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
 
 
 // Section 4 BONUS: (this is not related to FP):
