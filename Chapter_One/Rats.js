@@ -243,10 +243,13 @@ function visitorsInfo (town) {
     return {
       name: neighborhood.name,
       isSafe: !neighborhood.hasRats
-    }
+    };
   });
 }
 
+// TEST
+
+// console.log(visitorsInfo(districtsOfHamelin));
 
 //___________________________________________________________________
 
