@@ -103,8 +103,123 @@ function totalRats (town) {
 
 //console.log(totalRats(districtsOfHamelin))
 
-
 //Extra Credit: replace the second for loop with a .reduce
+
+//___________________________________________________________________
+// Section 4
+
+
+// There may be a rat hiding in this family of mice!
+
+// We've implemented a "contains" method to help detect
+// a rat, but it would be nice to read if you used the
+// native "reduce" function.
+
+// The Rodent pseudoclass may remind you of a
+// certain data structure that you have studied.
+
+var Rodent = function(value){
+  this.value = value;
+  this.children = [];
+};
+
+Rodent.prototype.addChild = function(value){
+  var newNode = new Rodent( value );
+  this.children.push( new Rodent( value ) );
+};
+
+Rodent.prototype.contains = function( value ){
+
+  if( this.value === value){
+    return true;
+  }
+  for( var i = 0; i < this.children.length; i++ ){
+    if( this.children[ i ].value.contains( value ) ){
+      return true;
+    }
+  }
+  return false;
+};
+
+// YOUR RAT DETECTION STRATEGY MUST PASS THESE TESTS:
+
+var grandDaddy = new Rodent( 'Grand-daddy Mouse' );
+grandDaddy.addChild ( new Rodent('Jerry Mouse') );
+
+var mattimeo = new Rodent( 'Mattimeo Mouse' );
+mattimeo.addChild( new Rodent('Frankie Mouse') );
+mattimeo.addChild( new Rodent('Benjy Mouse') );
+grandDaddy.addChild( mattimeo );
+
+console.log( grandDaddy.contains('Rizzo the Rat') ); // yields 'false'
+  
+var vera = new Rodent( 'Vera Mouse' );
+vera.addChild( new Rodent( ('Rizzo the Rat') ) );
+grandDaddy.addChild( vera );
+
+console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
+
+
+// Section 4 BONUS: (this is not related to FP):
+// Once you have refactored "contains" using "reduce",
+// rewrite it again with no recursive call.
+// Instead, use a while loop.
+
+// First, do a while loop using the Queue that is provided.
+// Second, do a while loop using the Stack.
+
+// Answer these questions:
+
+// 1. Does this refactor make your code more declarative
+// or more imperative?
+// 2. Is this a depth-first search (DFS) or a breadth-first
+// search (BFS)?
+
+// HELPERS for the BONUS
+var Queue = function() {
+
+  this._storage = {};
+  this._start = -1;
+  this._end = -1;
+};
+
+Queue.prototype.enqueue = function(value){
+  this._end++;
+  this._storage[this._end] = value;
+};
+
+Queue.prototype.dequeue = function(){
+  this.size() && this._start++;
+  var result = this._storage[this._start];
+  delete this._storage[this._start];
+  return result;
+};
+
+Queue.prototype.size = function(){
+  return this._end - this._start;
+};
+
+var Stack = function() {
+  this._storage = {};
+  this._size = 0;
+};
+
+Stack.prototype.push = function(value){
+  this._storage[this._size] = value;
+  this._size++;
+};
+
+Stack.prototype.pop = function(){
+  this._size && this._size--;
+  var result = this._storage[this._size];
+  delete this._storage[this._size];
+  return result;
+};
+
+Stack.prototype.size = function(){
+  return this._size;
+};
+
 
 //___________________________________________________________________
 //Section 4
