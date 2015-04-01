@@ -165,8 +165,9 @@ console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
 // rewrite it again with no recursive call.
 // Instead, use a while loop.
 
-// First, do a while loop using the Queue that is provided.
-// Second, do a while loop using the Stack.
+// First, make a while loop using the Queue pseudoclass that is
+// provided below.
+// Second, make a while loop using the Stack.
 
 // Answer these questions:
 
@@ -175,9 +176,9 @@ console.log( grandDaddy.contains('Rizzo the Rat') );   // yields 'true'
 // 2. Is this a depth-first search (DFS) or a breadth-first
 // search (BFS)?
 
-// HELPERS for the BONUS
-var Queue = function() {
 
+// HELPERS for the Section 4 BONUS
+var Queue = function() {
   this._storage = {};
   this._start = -1;
   this._end = -1;
