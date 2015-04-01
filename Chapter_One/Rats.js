@@ -4,7 +4,7 @@
 // var _ = require("../lib/underscore.js");
 
 // Otherwise, copy this code into the sandbox at http://jsbin.com/?js
-// and add 'underscore' from the 'Add library' dropdown 
+// and add 'underscore' from the 'Add library' dropdown
 
 // If do you want to add such a build system to your Sublime someday,
 // go to:    http://irruncibly.so/run-js-code-in-sublime
@@ -33,12 +33,9 @@ var districtsOfHamelin = [
 
 // We need a way to tell what neighborhoods are overrun
 function findRats (places) {
-  var withRats = [];
-  for (var i = 0; i < places.length; i++) {
-    if (places[i].hasRats)
-    withRats.push(places[i].name);
-  }
-  return withRats;
+  return places.filter(function (place) {
+    return place.hasRats;
+  });
 }
 
 //console.log(findRats(districtsOfHamelin));
@@ -50,11 +47,9 @@ function findRats (places) {
 
 // Once we know which ones have rats, let's tell everyone
 function announceRats (places) {
-  var withRats = findRats(places);
-  for (var i = 0; i < withRats.length; i++) {
-    console.log(withRats[i] + 'HAS BEEN OVERCOME BY RATS!');
-  }
-  return places; // always returning a value is just good practice, even if we won't use it now
+  return findRats(places).forEach(function (place) {
+    console.log(place + 'HAS BEEN OVERCOME BY RATS!');
+  });
 }
 
 //announceRats(districtsOfHamelin);
@@ -68,19 +63,15 @@ function announceRats (places) {
 
 // The townspeople need a way to tell which parts of Hamelin are safe!
 function findSafePlaces (places) {
-  var safe = [];
-  for (var i = 0; i < places.length; i++) {
-    if (places[i].hasRats === false) {
-      safe.push(places[i]);
-    }
-  }
-  return safe;
+  return places.filter(function (place) {
+    return !place.hasRats;
+  });
 }
 
 //console.log(findSafePlaces(districtsOfHamelin));
 
 
-// Extra Credit: replace the loop (or forEach) in findRats 
+// Extra Credit: replace the loop (or forEach) in findRats
 
 
 
@@ -90,15 +81,10 @@ function findSafePlaces (places) {
 
 // Just how serious is this problem? Let's find the total number of rats
 function totalRats (town) {
-  var ratPopulations = [];
-  var total = 0;
-  for (var i = 0; i < town.length; i++) {
-    ratPopulations.push(town[i].numberOfRats); //
-  }
-  for (var i = 0; i < ratPopulations.length; i++) {
-    total += ratPopulations[i];
-  }
-  return total;
+  return _.pluck(town, 'numberOfRats')
+  .reduce(function(acc, number){
+    return acc + number;
+  }, 0);
 }
 
 //console.log(totalRats(districtsOfHamelin))
@@ -153,7 +139,7 @@ Rodent.prototype.contains = function( value ){
 // grandDaddy.addChild( mattimeo );
 
 // console.log( grandDaddy.contains('Rizzo the Rat') ); // yields 'false'
-  
+
 // var vera = new Rodent( 'Vera Mouse' );
 // vera.addChild( new Rodent( ('Rizzo the Rat') ) );
 // grandDaddy.addChild( vera );
@@ -231,7 +217,7 @@ Stack.prototype.size = function(){
 // neighborhoods
 
 function visitorsInfo (town) {
-  return _.map(town, function(neighborhood){
+  return town.map(function(neighborhood){
     return {
       name: neighborhood.name,
       isSafe: !neighborhood.hasRats
