@@ -3,6 +3,9 @@
 
 // var _ = require("../lib/underscore.js");
 
+// You can also type `node file/path/to/Rats.js` in your terminal to run the
+// code with the require uncommented.
+
 // Otherwise, copy this code into the sandbox at http://jsbin.com/?js
 // and add 'underscore' from the 'Add library' dropdown 
 
@@ -108,7 +111,7 @@ function totalRats (town) {
 
 // TEST:
 
-// console.log(totalRats(districtsOfHamelin))
+// console.log(totalRats(districtsOfHamelin));
 
 //Extra Credit: replace the second for loop with a .reduce
 
@@ -240,10 +243,13 @@ function visitorsInfo (town) {
     return {
       name: neighborhood.name,
       isSafe: !neighborhood.hasRats
-    }
+    };
   });
 }
 
+// TEST
+
+// console.log(visitorsInfo(districtsOfHamelin));
 
 //___________________________________________________________________
 
